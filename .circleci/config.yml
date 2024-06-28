@@ -24,6 +24,7 @@ workflows:
       - terraform/apply:
           attach-workspace: true
           context: aws
+          path: ./.infrastructure/modules/lambda/
           filters:
             branches:
               only: main
