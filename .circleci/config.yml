@@ -16,7 +16,7 @@ workflows:
             - terraform/fmt
       - terraform/plan:
           checkout: true
-          context: terraform
+          context: aws
           persist-workspace: true
           path: ./.infrastructure/modules/lambda/
           requires:
