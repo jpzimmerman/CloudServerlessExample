@@ -16,8 +16,8 @@ workflows:
             - terraform/fmt
       - terraform/plan:
           checkout: true
-          working_directory: ~/project/.infrastructure/modules/lambda/
           context: terraform
           persist-workspace: true
+          workspace-path: ~/project/.infrastructure/modules/lambda/
           requires:
             - terraform/validate
