@@ -33,6 +33,7 @@ workflows:
             branches:
               only: main
           plan: "plan.out"
+          persist-workspace: true
           requires:
             - approve_for_deploy
       - approve_terraform_destroy:
