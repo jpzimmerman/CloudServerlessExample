@@ -33,4 +33,17 @@ workflows:
             branches:
               only: main
           requires:
-            - approve_for_deploy 
+            - approve_for_deploy
+      - approve_terraform_destroy:
+          type: approval
+          requires:
+            - terraform/apply
+      - terraform/destroy:
+          attach-workspace: true
+          context: aws
+          path: ./.infrastructure/modules/lambda/
+          filters:
+            branches:
+              only: main
+          requires:
+            - approve_terraform_destroy
