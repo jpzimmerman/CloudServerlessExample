@@ -32,6 +32,7 @@ workflows:
           filters:
             branches:
               only: main
+          plan: "plan.out"
           requires:
             - approve_for_deploy
       - approve_terraform_destroy:
