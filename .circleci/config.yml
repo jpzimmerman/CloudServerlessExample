@@ -21,6 +21,10 @@ workflows:
           path: ./.infrastructure/modules/lambda/
           requires:
             - terraform/validate
+      - approve_for_deploy:
+          type: approval
+          requires:
+            - terraform/plan
       - terraform/apply:
           attach-workspace: true
           context: aws
@@ -29,4 +33,4 @@ workflows:
             branches:
               only: main
           requires:
-            - terraform/plan
+            - approve_for_deploy 
